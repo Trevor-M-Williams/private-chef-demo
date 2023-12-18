@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Book</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=   , initial-scale=1.0" />
+    <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="css/webflow.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/private-chef.webflow.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/webclip.png" rel="apple-touch-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      #form-container {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navigation" class="navigation">
+      <div
+        data-animation="default"
+        data-collapse="medium"
+        data-duration="400"
+        data-easing="ease"
+        data-easing2="ease"
+        role="banner"
+        class="navigation-wrapper w-nav p-2"
+      >
+        <div class="w-full flex justify-between">
+          <a href="index.html" aria-current="page" class="w-12">
+            <img
+              src="images/Logo_1Logo.png"
+              loading="lazy"
+              alt="Logo"
+              class="image"
+            />
+          </a>
+          <a
+            data-w-id="aa676f33-beb2-cb5e-f4f1-cbcce11564aa"
+            href="book.html"
+            class="primary nav w-button"
+          >
+            Book Now
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="form-container"></div>
+
+    <!-- Embed Script for Chef's Website -->
+    <script data-chef-id="Jenica" data-form-id="2">
+      (function () {
+        // Function to create and load the iframe
+        function loadOrderPage(chefId) {
+          const iframe = document.createElement("iframe");
+
+          // Set the source of the iframe to your local order page URL with the chefId
+          iframe.src =
+            "http://localhost:3000/forms/" +
+            encodeURIComponent(chefId) +
+            "/" +
+            encodeURIComponent(formId);
+
+          // Set the width and height of the iframe to 100%
+          iframe.width = "100%";
+          iframe.height = "100%";
+          iframe.frameBorder = "0";
+
+          const formContainer = document.getElementById("form-container");
+
+          // Append the iframe directly to the body of the document
+          formContainer.appendChild(iframe);
+        }
+
+        // Fetch the chef's unique identifier from a data attribute, e.g., data-chef-id="123"
+        const chefId = document.currentScript.getAttribute("data-chef-id");
+        const formId = document.currentScript.getAttribute("data-form-id");
+
+        // Load the order page
+        if (chefId) {
+          loadOrderPage(chefId);
+        } else {
+          console.error("Chef ID is missing.");
+        }
+      })();
+    </script>
+  </body>
+</html>
