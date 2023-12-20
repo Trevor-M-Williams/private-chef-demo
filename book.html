@@ -62,18 +62,21 @@
     <div id="form-container"></div>
 
     <!-- Embed Script for Chef's Website -->
-    <script data-chef-id="Jenica" data-form-id="2">
+    <script data-chef-id="user_2Zn3WRPKpDAjezIQ1bPzBin3Pwo" data-form-id="1">
       (function () {
         // Function to create and load the iframe
         function loadOrderPage(chefId) {
           const iframe = document.createElement("iframe");
 
-          // Set the source of the iframe to your local order page URL with the chefId
-          iframe.src =
-            "https://www.luminatedenver.dev/forms/" +
-            encodeURIComponent(chefId) +
-            "/" +
-            encodeURIComponent(formId);
+          const url = `https://app.luminatedenver.dev/public/forms/?chefId=${encodeURIComponent(
+            chefId
+          )}&formId=${encodeURIComponent(formId)}`;
+          console.log("URL: ", url);
+
+          // const url =
+          //   "http://localhost:3000/public/forms?chefId=user_2Zn3WRPKpDAjezIQ1bPzBin3Pwo&formId=1";
+
+          iframe.src = url;
 
           // Set the width and height of the iframe to 100%
           iframe.width = "100%";
